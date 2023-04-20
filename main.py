@@ -13,3 +13,9 @@ import tensorflow_datasets as tfds
     as_supervised=True,
     with_info=True,
 )
+
+def normalize_img(image, label):
+    return tf.cast(image, tf.float32) / 255., label
+
+def resize_img(image, label):
+    return tf.image.resize(image, (28, 28)), label
