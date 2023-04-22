@@ -14,8 +14,10 @@ import tensorflow_datasets as tfds
     with_info=True,
 )
 
+# This function used to normalize image in appropriate way
 def normalize_img(image, label):
     return tf.cast(image, tf.float32) / 255., label
 
+# This function used to resize input image to appropriate size of pixels (28x28)
 def resize_img(image, label):
     return tf.image.resize(image, (28, 28)), label
